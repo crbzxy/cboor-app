@@ -1,25 +1,21 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true, // Activar React Strict Mode para ayudar a identificar problemas potenciales en tu aplicación.
-  swcMinify: true, // Usar el minificador SWC para mejorar el rendimiento de construcción.
-
+  reactStrictMode: true,
+  swcMinify: true,
   images: {
     remotePatterns: [
       {
-        protocol: 'https', // Especifica el protocolo, por ejemplo, 'https'
-        hostname: 'carlosboyzo.com', // Dominio permitido
-        port: '', // Deja vacío si no necesitas un puerto específico
-        pathname: '/**', // Permite todas las rutas desde este dominio
+        protocol: 'https',
+        hostname: 'carlosboyzo.com',
+        port: '',
+        pathname: '/**',
       },
     ],
-    formats: ['image/avif', 'image/webp'], // Habilitar formatos de imagen modernos para mejorar la carga.
+    formats: ['image/avif', 'image/webp'],
+    unoptimized: true, // Desactiva la optimización de imágenes
   },
-  i18n: {
-    locales: ['es', 'en'], // Configurar internacionalización si es necesario.
-    defaultLocale: 'es', // Establecer el idioma predeterminado.
-  },
+  output: 'export', // Agrega esta línea
   webpack: (config, { isServer }) => {
-    // Configuraciones adicionales de Webpack, si las necesitas
     if (!isServer) {
       config.resolve.fallback = {
         fs: false,

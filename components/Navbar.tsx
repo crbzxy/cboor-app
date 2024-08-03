@@ -13,21 +13,12 @@ interface NavItem {
 }
 
 // Array de emojis que representan diferentes temas de los poemas de Roberto Bolaño
-const emojis = ['🔥', '🌟',  '📚', '✍️', '💫', '🎭', '🎨'];
+const emojis = ['🔥', '🌟', '📚', '✍️', '💫', '🎭', '🎨'];
 
 const NAV_ITEMS: Array<NavItem> = [
-  {
-    label: 'Home',
-    page: 'home',
-  },
-  {
-    label: 'Sobre mi',
-    page: 'about',
-  },
-  {
-    label: 'Proyectos',
-    page: 'projects',
-  },
+  { label: 'Home', page: 'home' },
+  { label: 'Sobre mí', page: 'about' },
+  { label: 'Proyectos', page: 'projects' },
 ];
 
 export default function Navbar() {
@@ -38,29 +29,25 @@ export default function Navbar() {
 
   useEffect(() => {
     // Seleccionar un emoji aleatorio del array cada vez que se recarga la página
-    const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
-    setHomeIcon(randomEmoji);
+    setHomeIcon(emojis[Math.floor(Math.random() * emojis.length)]);
   }, []);
 
-  // Función para cambiar el tema
-  const toggleTheme = () => {
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    setTheme(newTheme);
-  };
-
   // Botón de cambio de tema
-  const themeButton =
-    currentTheme === 'dark' ? (
-      <button
-        onClick={() => setTheme('light')}
-        className='bg-gray-100 p-2 rounded-xl relative'>
-        <RiSunLine size={25} color='black' />
-      </button>
-    ) : (
-      <button onClick={toggleTheme} className='p-2 rounded-xl'>
-        <RiMoonFill size={25} />
-      </button>
-    );
+  const themeButton = currentTheme === 'dark' ? (
+    <button
+      onClick={() => setTheme('light')}
+      aria-label="Cambiar a tema claro"
+      className='bg-gray-100 p-2 rounded-xl relative'>
+      <RiSunLine size={25} color='black' />
+    </button>
+  ) : (
+    <button
+      onClick={() => setTheme('dark')}
+      aria-label="Cambiar a tema oscuro"
+      className='p-2 rounded-xl'>
+      <RiMoonFill size={25} />
+    </button>
+  );
 
   return (
     <header className='w-full mx-auto p-2 sm:px-20 fixed top-0 z-50 shadow bg-white dark:bg-gray-950'>
@@ -72,16 +59,18 @@ export default function Navbar() {
               <Image
                 src='/cbo-logo.png'
                 alt='CBO Logo'
-                className='w-auto'
-                width={60}
-                height={40}
+                className='w-auto h-5'
+                width={10}
+                height={10}
                 priority={true} // Optimización de la carga de la imagen
               />
             </div>
           </Link>
           <button
             className='md:hidden p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border'
-            onClick={() => setNavbar(!navbar)}>
+            onClick={() => setNavbar(!navbar)}
+            aria-label={navbar ? "Cerrar menú" : "Abrir menú"}
+          >
             {navbar ? <IoMdClose size={30} /> : <IoMdMenu size={30} />}
           </button>
         </div>
@@ -96,7 +85,8 @@ export default function Navbar() {
               smooth={true}
               offset={-100}
               duration={500}
-              onClick={() => setNavbar(false)}>
+              onClick={() => setNavbar(false)}
+            >
               <span className='text-2xl'>{homeIcon}</span>
             </Link>
             {NAV_ITEMS.slice(1).map((item) => (
@@ -109,7 +99,8 @@ export default function Navbar() {
                 smooth={true}
                 offset={-100}
                 duration={500}
-                onClick={() => setNavbar(false)}>
+                onClick={() => setNavbar(false)}
+              >
                 {item.label}
               </Link>
             ))}

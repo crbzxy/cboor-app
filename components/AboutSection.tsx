@@ -1,8 +1,14 @@
+'use client'; // Indica que es un componente del cliente
+
 import React from 'react';
 import Image from 'next/image';
 
-// Define tus habilidades
-const skills = [
+// Define el tipo para las habilidades
+type Skill = {
+  skill: string;
+};
+
+const skills: Skill[] = [
   { skill: 'HTML' },
   { skill: 'CSS' },
   { skill: 'JavaScript' },
@@ -13,7 +19,6 @@ const skills = [
   { skill: 'Tailwind CSS' },
   { skill: 'Git' },
   { skill: 'GitHub' },
-  { skill: 'Jupyter Notebooks' },
   { skill: 'Node.js' },
   { skill: 'Express' },
   { skill: 'MongoDB' },
@@ -22,73 +27,69 @@ const skills = [
   { skill: 'Figma' },
 ];
 
-const AboutSection = () => {
+// Define el componente para cada tarjeta de habilidad
+const SkillCard: React.FC<Skill> = ({ skill }) => (
+  <li
+    className="bg-gray-200 px-4 py-2 mr-2 mt-2 text-gray-500 rounded font-semibold hover:bg-lime-500 hover:text-white transition duration-300"
+  >
+    {skill}
+  </li>
+);
+
+const AboutSection: React.FC = () => {
   return (
-    <section id="about">
-      <div className="my-12 pb-12 md:pt-16 md:pb-48">
-        <h1 className="text-center font-bold text-4xl">
+    <section id="about" className="py-20 bg-white dark:bg-gray-950">
+      <div className="container mx-auto px-4">
+        <h1 className="text-center font-bold text-4xl text-gray-900 dark:text-gray-100 mb-8">
           Acerca de mí
-          <hr className="w-6 h-1 mx-auto my-4 bg-teal-500 border-0 rounded"></hr>
+          <hr className="w-16 h-1 mx-auto mt-4 bg-lime-500 border-0 rounded" />
         </h1>
 
-        <div className="flex flex-col space-y-10 items-stretch justify-center align-top md:space-x-10 md:space-y-0 md:p-4 md:flex-row md:text-left">
-          <div className="md:w-1/2">
-            <h1 className="text-center text-2xl font-bold mb-6 md:text-left">
+        <div className="flex flex-col md:flex-row md:space-x-10 items-center md:items-start">
+          <div className="md:w-1/2 mb-10 md:mb-0">
+            <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-6">
               ¡Conóceme!
-            </h1>
-            <p>
-              Hola, mi nombre es Carlos Armando Boyzo Oregón y soy un{' '}
+            </h2>
+            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+              ¡Hola! Soy Carlos Armando Boyzo Oregón, un apasionado{' '}
               <span className="font-bold">Desarrollador Web Front-End</span> y{' '}
-              <span className="font-bold">Diseñador UI-UX</span> con más de 4.5 años
-              de experiencia, basado en México. Soy{' '}
-              <span className="font-bold">apasionado</span> por la creación de experiencias
-              digitales que superan las expectativas de los clientes mediante la
-              integración de tecnologías innovadoras.
+              <span className="font-bold">Diseñador UI-UX</span> con más de 4.5 años de
+              experiencia, basado en México. Me especializo en crear experiencias
+              digitales que no solo cumplen, sino que también impulsan el éxito de las
+              empresas al integrar tecnologías innovadoras y enfoques transdisciplinarios.
             </p>
-            <br />
-            <p>
+            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
               Me gradué de la{' '}
               <span className="font-bold">
                 Escuela Nacional de Pintura, Escultura y Grabado &quot;La Esmeralda&quot;
               </span>{' '}
-              (INBA - ENPEG) en México, con una especialidad en Arte Digital y Nuevos Medios.
-              También completé un intercambio Erasmus en la{' '}
+              (INBA - ENPEG) en México, donde me especialicé en Arte Digital y Nuevos
+              Medios. Durante mi intercambio en la{' '}
               <span className="font-bold">École Nationale Supérieure des Beaux-Arts</span>{' '}
-              en Lyon, Francia, donde profundicé mis conocimientos en Artes Visuales.
+              en Lyon, Francia, profundicé mis conocimientos en Artes Visuales.
             </p>
-            <br />
-            <p>
-              A lo largo de mi carrera, he trabajado en empresas líderes como Truper,
-              Totalplay, Telmex, Pfizer, Eisai, y Sección Amarilla, donde he desarrollado
-              habilidades en optimización de productos digitales, diseño de interfaces, y
-              desarrollo front-end.
+            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+              He tenido el privilegio de trabajar en empresas líderes como Truper,
+              Totalplay, Telmex, Pfizer, Eisai, y Sección Amarilla, desarrollando
+              habilidades en la optimización de productos digitales, diseño de interfaces,
+              y desarrollo front-end.
             </p>
-            <br />
-            <p>
-              Fuera del trabajo, disfruto de una variedad de pasatiempos que me permiten crecer
-              tanto personal como profesionalmente.
-            </p>
-            <br />
-            <p>
-              Estoy comprometido con el aprendizaje continuo y la exploración de nuevas oportunidades.
-              Creo firmemente en la importancia de empujar los límites de lo que es posible en el
-              mundo digital y espero contribuir a proyectos que hagan una diferencia significativa. 😊
+            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+              Fuera del trabajo, disfruto explorar una variedad de pasatiempos que me
+              permiten crecer personal y profesionalmente. Estoy comprometido con el
+              aprendizaje continuo y la exploración de nuevas oportunidades, siempre
+              buscando empujar los límites de lo que es posible en el mundo digital.
             </p>
           </div>
           <div className="text-center md:w-1/2 md:text-left">
-            <h1 className="text-2xl font-bold mb-6">Mis Habilidades</h1>
-            <div className="flex flex-wrap flex-row justify-center z-10 md:justify-start">
-              {skills.map((item, idx) => {
-                return (
-                  <p
-                    key={idx}
-                    className="bg-gray-200 px-4 py-2 mr-2 mt-2 text-gray-500 rounded font-semibold"
-                  >
-                    {item.skill}
-                  </p>
-                );
-              })}
-            </div>
+            <h2 className="text-2xl font-bold mb-6 text-gray-800 dark:text-gray-200">
+              Mis Habilidades
+            </h2>
+            <ul className="flex flex-wrap flex-row justify-center md:justify-start">
+              {skills.map((item, idx) => (
+                <SkillCard skill={item.skill} key={idx} />
+              ))}
+            </ul>
             <Image
               src="/hero-image.png"
               alt="Imagen de Carlos Boyzo Oregón"

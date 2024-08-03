@@ -11,7 +11,7 @@ const projects = [
       "Un laboratorio de ideas especializado en la creación de contenido hecho a medida para tus proyectos.",
     image: "/vortex.png",
     github: "https://github.com/hqasmei/thankful-thoughts",
-    link: "https://vortexmedialab.netlify.app/",
+    link: "https://vortexmedialab.mx/",
     config: {
       showGithubLink: false,
       showExternalLink: true,
