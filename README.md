@@ -13,7 +13,7 @@ npm install
 npm run dev
 ```
 
-  * 18.18.2 (Currently using 64-bit executable)  
+  * Node version 18.18.2 (Currently using 64-bit executable)  
 
   
 ```bash
