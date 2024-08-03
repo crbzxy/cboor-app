@@ -7,9 +7,8 @@ import {
 
 // Definimos un array para los íconos de redes sociales para facilitar su manejo y escalabilidad
 const socialLinks = [
-  { href: "https://github.com/hqasmei", icon: AiOutlineGithub },
-  { href: "https://www.linkedin.com/in/hosnaqasmei/", icon: AiOutlineLinkedin },
-  { href: "https://www.youtube.com/channel/UCQBMkSDgbxDb8usMeXmOZyA", icon: AiOutlineYoutube },
+  { href: "https://github.com/crbzxy", icon: AiOutlineGithub },
+  { href: "https://www.linkedin.com/in/carlosboyzo/", icon: AiOutlineLinkedin },
 ];
 
 const Footer = () => {

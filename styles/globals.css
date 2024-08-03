@@ -2,6 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+/* styles/globals.css o un archivo CSS relevante */
+
+::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+
+main {
+  scroll-behavior: smooth;
+  max-width: fit-content;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
 a {
   cursor: pointer;
 }
