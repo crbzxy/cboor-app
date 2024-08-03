@@ -49,7 +49,7 @@ const AboutSection = () => {
             <p>
               Me gradué de la{' '}
               <span className="font-bold">
-                Escuela Nacional de Pintura, Escultura y Grabado "La Esmeralda"
+                Escuela Nacional de Pintura, Escultura y Grabado &quot;La Esmeralda&quot;
               </span>{' '}
               (INBA - ENPEG) en México, con una especialidad en Arte Digital y Nuevos Medios.
               También completé un intercambio Erasmus en la{' '}

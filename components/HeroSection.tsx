@@ -31,7 +31,7 @@ const HeroSection = () => {
         <p className='mt-4 mb-6 text-lg md:text-xl'>
           Soy un <span className="font-bold">Desarrollador Web Front-End</span> y <span className="font-bold">Diseñador UI-UX</span> con más de 4.5 años de experiencia. 
         </p>
-        <p className='mt-4 mb-6' >Me especializo en crear experiencias digitales que no solo cumplen con las expectativas de los clientes, sino que las superan, integrando nuevas tecnologías y enfoques transdisciplinarios para ofrecer soluciones innovadoras y eficientes.</p>
+        <p className='mt-4 mb-6' >Me especializo en crear experiencias digitales que son altamente efectivas para generar los insights que las empresas buscan entender de sus usuarios. Al integrar nuevas tecnologías y enfoques transdisciplinarios, desarrollo soluciones que mejoran la toma de decisiones y potencian el valor de cada proyecto.</p>
         <Link
           to='projects'
           className='inline-block px-6 py-3 text-white bg-gray-800 rounded shadow font-semibold hover:bg-lime-500 transition duration-300 ease-in-out'
